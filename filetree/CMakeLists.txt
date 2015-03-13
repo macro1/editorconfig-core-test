@@ -70,10 +70,10 @@ new_ec_test(top_level_path_separator path_separator.in top/of/path "^key=value[ 
 new_ec_test(top_level_path_separator_neg path_separator.in not/top/of/path "^[ \t\n\r]*$")
 
 # Test Windows-style path separator (backslash) does not work
-new_ec_test(windows_separator path_separator.in windows/separator "^[ \t\n\r]*$")
+new_ec_test(windows_separator path_separator.in windows/separator ${path_separator_backslash_in_cmd_line_regex})
 
 # Test again that Windows-style path separator (backslash) does not work
-new_ec_test(windows_separator2 path_separator.in windows/separator2 "^[ \t\n\r]*$")
+new_ec_test(windows_separator2 path_separator.in windows/separator2 ${path_separator_backslash_in_cmd_line_regex})
 
 # Globs with backslash in it but should be considered as file name on Non-Windows system
 if(NOT WIN32)
